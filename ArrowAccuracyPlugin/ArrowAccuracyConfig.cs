@@ -5,16 +5,24 @@ namespace ArrowAccuracyPlugin
 {
     public static class ArrowAccuracyConfig
     {
-        public static ConfigEntry<float> ArrowAccuracyMultiplier;
-        public static ConfigEntry<float> ArrowVelocityMultiplier;
+        public static ConfigEntry<float> PlayerArrowAccuracyMultiplier;
+        public static ConfigEntry<float> PlayerArrowVelocityMultiplier;        
+        public static ConfigEntry<float> EnemyArrowAccuracyMultiplier;
+        public static ConfigEntry<float> EnemyArrowVelocityMultiplier;
 
         public static void Initialize(ConfigFile configFile)
         {
-            ArrowAccuracyMultiplier = configFile.Bind("General.Accuracy", "ArrowAccuracyMultiplier", 0f,
-                "Projectile Accuracy Multiplier. 1 is default, 0 is 100% accurate.");
+            PlayerArrowAccuracyMultiplier = configFile.Bind("General.Accuracy", "PlayerArrowAccuracyMultiplier", 0f,
+                "Player Projectile Accuracy Multiplier. Higher number = less accuracy.");
             
-            ArrowVelocityMultiplier = configFile.Bind("General.Velocity", "ArrowVelocityMultiplier", 1f,
-                "Arrow velocity multiplier, 1 is default, more is faster arrows.");
+            PlayerArrowVelocityMultiplier = configFile.Bind("General.Velocity", "PlayerArrowVelocityMultiplier", 1f,
+                "Player Arrow velocity multiplier");
+            
+            EnemyArrowAccuracyMultiplier = configFile.Bind("General.Accuracy", "EnemyArrowAccuracyMultiplier", 1f,
+                "Enemy Player Projectile Accuracy Multiplier. Higher number = less accuracy.");
+            
+            EnemyArrowVelocityMultiplier = configFile.Bind("General.Velocity", "EnemyArrowVelocityMultiplier", 1f,
+                "Enemy Arrow velocity multiplier");
         }
     }
 }
