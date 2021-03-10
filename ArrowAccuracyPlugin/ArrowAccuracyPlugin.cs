@@ -16,8 +16,6 @@ namespace ArrowAccuracyPlugin
 
         internal static ArrowAccuracyPlugin Instance;
 
-        public ConfigEntry<bool> configDisplayGreeting;
-
         private void Awake()
         {
             Instance = this;

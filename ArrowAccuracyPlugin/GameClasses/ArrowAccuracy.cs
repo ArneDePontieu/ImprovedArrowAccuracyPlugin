@@ -12,14 +12,7 @@ namespace ArrowAccuracyPlugin.GameClasses
         {
             __instance.m_projectileVel += ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
             __instance.m_projectileVelMin += ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
-
-            if (!ArrowAccuracyConfig.CustomAccuracyEnabled.Value)
-            {
-                return;
-            }
-
-            __instance.m_projectileAccuracy = ArrowAccuracyConfig.ArrowMaxAccuracy.Value;
-            __instance.m_projectileAccuracyMin = ArrowAccuracyConfig.ArrowMinAccuracy.Value;
+            __instance.m_projectileAccuracy = ArrowAccuracyConfig.ArrowAccuracyMultiplier.Value;
         }
     }
 }
