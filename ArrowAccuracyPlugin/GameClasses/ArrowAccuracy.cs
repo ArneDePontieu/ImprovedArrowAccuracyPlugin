@@ -5,11 +5,16 @@ using ValheimLib;
 
 namespace ArrowAccuracyPlugin.GameClasses
 {
-    [HarmonyPatch(typeof(Attack), "FireProjectileBurst")]
+    [HarmonyPatch(typeof(Attack), "Start")]
     public static class ModifyProjectiles
     {
-        private static void Prefix(ref Attack __instance)
+        private static void Postfix(ref Attack __instance, ref Humanoid character)
         {
+            if (!character.IsPlayer())
+            {
+                return;
+            }
+            
             __instance.m_projectileVel *= ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
             __instance.m_projectileVelMin *= ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
             __instance.m_projectileAccuracyMin *= ArrowAccuracyConfig.ArrowAccuracyMultiplier.Value;
