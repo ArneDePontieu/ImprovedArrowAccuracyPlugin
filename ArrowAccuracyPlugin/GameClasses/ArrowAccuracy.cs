@@ -10,9 +10,10 @@ namespace ArrowAccuracyPlugin.GameClasses
     {
         private static void Prefix(ref Attack __instance)
         {
-            __instance.m_projectileVel += ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
-            __instance.m_projectileVelMin += ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
-            __instance.m_projectileAccuracy = ArrowAccuracyConfig.ArrowAccuracyMultiplier.Value;
+            __instance.m_projectileVel *= ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
+            __instance.m_projectileVelMin *= ArrowAccuracyConfig.ArrowVelocityMultiplier.Value;
+            __instance.m_projectileAccuracyMin *= ArrowAccuracyConfig.ArrowAccuracyMultiplier.Value;
+            __instance.m_projectileAccuracy *= ArrowAccuracyConfig.ArrowAccuracyMultiplier.Value;
         }
     }
 }
